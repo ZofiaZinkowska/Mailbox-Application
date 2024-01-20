@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "869143484373",
+    "project_id": "mailboxapplication1-f1bd9",
+    "storage_bucket": "mailboxapplication1-f1bd9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869143484373:android:bf549751fb938aa4eccf5c",
+        "android_client_info": {
+          "package_name": "Aplikacja.Mobilna.Zosia1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8mwFS_4LTFLRvTJc4J1zCVyP95Hs_swA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
