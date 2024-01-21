@@ -58,6 +58,18 @@ class _MyHomePageState extends State<MyHomePage> {
   bool isLoggingIn = false;
 
   @override
+  void initState() {
+    super.initState();
+    initStateAsync();
+  }
+
+  Future<void> initStateAsync() async {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     final content = isLoggingIn
         ? buildInfo(context, "Please wait while we sign you in")
