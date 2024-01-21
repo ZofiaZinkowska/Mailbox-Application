@@ -12,7 +12,20 @@
           "package_name": "Aplikacja.Mobilna.Zosia1"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "869143484373-9uq9s7r75ah2i19n4oeqgh5538lvmop9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "Aplikacja.Mobilna.Zosia1",
+            "certificate_hash": "b2bfffc61e96b1e2fbcd3b67557024d8cda29218"
+          }
+        },
+        {
+          "client_id": "869143484373-r12nf61riakm8jbkc8bao4fjpnr7s8ec.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyA8mwFS_4LTFLRvTJc4J1zCVyP95Hs_swA"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "869143484373-r12nf61riakm8jbkc8bao4fjpnr7s8ec.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
