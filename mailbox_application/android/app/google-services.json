@@ -37,6 +37,13 @@
             {
               "client_id": "869143484373-r12nf61riakm8jbkc8bao4fjpnr7s8ec.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "869143484373-du1r3m66d4tb3resclvctftonnem5clp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mailboxApplication.RunnerTests"
+              }
             }
           ]
         }
