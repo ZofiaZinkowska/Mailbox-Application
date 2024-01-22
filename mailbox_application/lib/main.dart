@@ -1,6 +1,8 @@
 import 'package:enough_mail/enough_mail.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
+import 'package:mailbox_application/controllers/user_controller.dart';
 import 'firebase_options.dart';
 
 import 'messages.dart';
@@ -170,26 +172,43 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<MailClient> connect() async {
-    final email = emailController.text;
-    final password = passwordController.text;
+    final user = await UserController.loginWithGoogle();
+    final email = user!.email!;
+    final token = await user.getIdTokenResult();
+    try {
+      //final oAuthToken = OauthToken.fromJson(tokenJson);
+      final oAuthToken = OauthToken(
+        accessToken: token.token!,
+        expiresIn: 3600,
+        created: DateTime.now(),
+        refreshToken: '',
+        scope: '',
+        tokenType: '',
+        provider: ''
+      );
+      final auth = OauthAuthentication(email, oAuthToken);
 
-    // TODO: Show error when login or password is null
+      // TODO: Show error when login or password is null
 
-    final config = await Discover.discover(email);
+      final config = await Discover.discover(email);
 
-    // TODO: Show error when config is null (could not be detected)
-    final account = MailAccount.fromDiscoveredSettings(
-      name: 'Gmail account',
-      email: email,
-      password: password,
-      userName: email, // This is the additional parameter needed
-      config: config!,
-    );
+      // TODO: Show error when config is null (could not be detected)
+      final account = MailAccount.fromDiscoveredSettingsWithAuth(
+        name: 'Gmail account',
+        email: email,
+        auth: auth,
+        userName: email, // This is the additional parameter needed
+        config: config!,
+      );
 
-    final client = MailClient(account, isLogEnabled: true);
+      final client = MailClient(account, isLogEnabled: true);
 
-    // TODO: try-catch to handle authorization fail
-    await client.connect();
-    return client;
+      // TODO: try-catch to handle authorization fail
+      await client.connect();
+      return client;
+    } catch (error) {
+      debugPrint(error.toString());
+      throw error;
+    }
   }
 }

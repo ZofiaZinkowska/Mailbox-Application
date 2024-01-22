@@ -8,7 +8,7 @@ class UserController {
   static Future<User?> loginWithGoogle() async {
     
     
-    final googleAccount = await GoogleSignIn().signIn();
+    final googleAccount = await GoogleSignIn(scopes: ["https://mail.google.com"]).signIn();
 
     final googleAuth = await googleAccount?.authentication;
 
